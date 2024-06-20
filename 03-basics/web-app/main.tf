@@ -23,7 +23,7 @@ provider "aws" {
 
 resource "aws_instance" "instance_1" {
   ami             = "ami-011899242bb902164" # Ubuntu 20.04 LTS // us-east-1
-  instance_type   = "t2.micro"
+  instance_type   = "t3.micro"
   security_groups = [aws_security_group.instances.name]
   user_data       = <<-EOF
               #!/bin/bash
@@ -34,7 +34,7 @@ resource "aws_instance" "instance_1" {
 
 resource "aws_instance" "instance_2" {
   ami             = "ami-011899242bb902164" # Ubuntu 20.04 LTS // us-east-1
-  instance_type   = "t2.micro"
+  instance_type   = "t3.micro"
   security_groups = [aws_security_group.instances.name]
   user_data       = <<-EOF
               #!/bin/bash
@@ -212,7 +212,7 @@ resource "aws_db_instance" "db_instance" {
   storage_type               = "standard"
   engine                     = "postgres"
   engine_version             = "12"
-  instance_class             = "db.t2.micro"
+  instance_class             = "db.t3.micro"
   name                       = "mydb"
   username                   = "foo"
   password                   = "foobarbaz"
